@@ -1,0 +1,5 @@
+/target/
+/validation/
+*.db
+*.db-shm
+*.db-wal

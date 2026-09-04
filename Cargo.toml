@@ -1,0 +1,30 @@
+[package]
+name = "vamparser"
+version = "0.1.0"
+edition = "2021"
+description = "Fast standalone Windows forensic artifact parsers"
+
+[[bin]]
+name = "vamparser"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1"
+chrono = { version = "0.4", default-features = false, features = ["clock", "std"] }
+clap = { version = "4", features = ["derive"] }
+rusqlite = { version = "0.32", features = ["bundled"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sha2 = "0.10"
+walkdir = "2"
+xpress-huffman = "0.1.3"
+lnk-core = "0.4.1"
+evtx = { version = "0.12.2", default-features = false }
+regf = "0.1.0"
+libesedb = "0.2.7"
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = "symbols"
+panic = "abort"
